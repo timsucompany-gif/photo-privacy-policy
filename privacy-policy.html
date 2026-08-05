@@ -1,0 +1,485 @@
+<title>隱私權政策 — 照片清理大師</title>
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --bg-section: #F7F9FC;
+    --text: #1D1D1F;
+    --text-secondary: #5F6368;
+    --accent: #1A73E8;
+    --border: #DADCE0;
+    --card-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #121417;
+      --bg-section: #1A1D22;
+      --text: #E3E3E8;
+      --text-secondary: #9AA0A6;
+      --accent: #6EABF7;
+      --border: #2E3238;
+      --card-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #121417;
+    --bg-section: #1A1D22;
+    --text: #E3E3E8;
+    --text-secondary: #9AA0A6;
+    --accent: #6EABF7;
+    --border: #2E3238;
+    --card-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  }
+  :root[data-theme="light"] {
+    --bg: #FFFFFF;
+    --bg-section: #F7F9FC;
+    --text: #1D1D1F;
+    --text-secondary: #5F6368;
+    --accent: #1A73E8;
+    --border: #DADCE0;
+    --card-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .app-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, var(--accent), #4FC3F7);
+    border-radius: 16px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: #fff;
+    box-shadow: var(--card-shadow);
+  }
+
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin-bottom: 6px;
+  }
+
+  .app-name {
+    font-size: 15px;
+    color: var(--text-secondary);
+    font-weight: 400;
+  }
+
+  .update-date {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    background: var(--bg-section);
+    padding: 4px 14px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+  }
+
+  section {
+    margin-bottom: 36px;
+  }
+
+  h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--text);
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+  }
+
+  h2::after {
+    content: '';
+    display: block;
+  }
+
+  .section-body {
+    margin-top: 8px;
+  }
+
+  p {
+    margin-bottom: 12px;
+    color: var(--text);
+    font-size: 15px;
+  }
+
+  ul {
+    padding-left: 20px;
+    margin-bottom: 12px;
+  }
+
+  li {
+    margin-bottom: 8px;
+    font-size: 15px;
+    color: var(--text);
+  }
+
+  li strong {
+    color: var(--text);
+  }
+
+  .highlight-box {
+    background: var(--bg-section);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 16px 0;
+    font-size: 14px;
+    color: var(--text-secondary);
+    box-shadow: var(--card-shadow);
+  }
+
+  .highlight-box strong {
+    color: var(--text);
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .contact-card {
+    background: var(--bg-section);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    box-shadow: var(--card-shadow);
+  }
+
+  .contact-card p {
+    margin-bottom: 8px;
+    font-size: 15px;
+  }
+
+  .contact-email {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .lang-switch {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .lang-switch button {
+    background: none;
+    border: 1px solid var(--border);
+    padding: 6px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    margin: 0 4px;
+    transition: all 0.2s;
+    font-family: inherit;
+  }
+
+  .lang-switch button.active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+
+  .lang-en { display: none; }
+
+  .footer {
+    text-align: center;
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+</style>
+
+<div class="container">
+  <div class="header">
+    <div class="app-icon">🧹</div>
+    <h1 id="title-zh">隱私權政策</h1>
+    <h1 id="title-en" style="display:none">Privacy Policy</h1>
+    <div class="app-name">照片清理大師 Photo Cleaner Master</div>
+    <div class="update-date" id="date-zh">生效日期：2026 年 8 月 6 日</div>
+    <div class="update-date" id="date-en" style="display:none">Effective: August 6, 2026</div>
+  </div>
+
+  <div class="lang-switch">
+    <button class="active" onclick="switchLang('zh')">中文</button>
+    <button onclick="switchLang('en')">English</button>
+  </div>
+
+  <!-- 中文版 -->
+  <div class="lang-zh">
+    <section>
+      <h2>一、總覽</h2>
+      <div class="section-body">
+        <p>照片清理大師（以下簡稱「本應用程式」）由 TimSuCompany 開發與維護。我們非常重視您的隱私，本政策說明本應用程式如何處理您的資料。</p>
+        <div class="highlight-box">
+          <strong>核心承諾：</strong>本應用程式的所有照片與影片分析皆在您的裝置上本機執行，不會將您的照片或影片上傳至任何伺服器。
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>二、我們存取的資料</h2>
+      <div class="section-body">
+        <p>為了提供清理功能，本應用程式會存取以下裝置資料：</p>
+        <ul>
+          <li><strong>照片與影片：</strong>讀取您裝置中的照片和影片，以進行模糊偵測、相似分組等分析。所有分析皆在裝置端完成。</li>
+          <li><strong>儲存空間：</strong>在 Android 9（API 28）及更早版本中，需要寫入權限以執行刪除操作。</li>
+          <li><strong>應用程式使用統計：</strong>用於計算各應用程式佔用的快取空間大小。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>三、裝置端 AI 分析</h2>
+      <div class="section-body">
+        <p>本應用程式使用以下技術來分析您的照片與影片，所有處理皆在裝置端完成，不會傳送任何資料至外部：</p>
+        <ul>
+          <li><strong>模糊偵測：</strong>使用 TensorFlow Lite 模型判斷照片是否模糊。</li>
+          <li><strong>人臉偵測：</strong>使用 Google ML Kit 偵測閉眼等情況。</li>
+          <li><strong>影片分析：</strong>使用感知雜湊演算法比對相似影片。</li>
+        </ul>
+        <div class="highlight-box">
+          上述模型與演算法完全在您的手機上運行，<strong>無需網路連線</strong>即可使用核心功能。
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>四、第三方服務</h2>
+      <div class="section-body">
+        <p>本應用程式使用 <strong>Google AdMob</strong> 顯示廣告。AdMob 可能會收集以下資訊：</p>
+        <ul>
+          <li>裝置識別碼（廣告 ID）</li>
+          <li>IP 位址</li>
+          <li>一般位置資訊（非精確定位）</li>
+          <li>應用程式使用資料與互動資料</li>
+        </ul>
+        <p>相關資料的收集與處理受 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 隱私權政策</a> 規範。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>五、資料儲存</h2>
+      <div class="section-body">
+        <p>本應用程式在您的裝置本機儲存以下資料：</p>
+        <ul>
+          <li><strong>掃描快取：</strong>照片與影片的分析結果，用於加速後續掃描。</li>
+          <li><strong>使用偏好：</strong>您的應用程式設定。</li>
+        </ul>
+        <p>這些資料僅儲存在您的裝置上，您可以隨時透過清除應用程式資料來移除。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>六、我們不做的事</h2>
+      <div class="section-body">
+        <ul>
+          <li>不上傳您的照片或影片至任何伺服器</li>
+          <li>不建立使用者帳號或個人檔案</li>
+          <li>不收集您的姓名、電子郵件或聯絡方式</li>
+          <li>不追蹤您的精確位置</li>
+          <li>不與第三方分享您的個人媒體檔案</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>七、兒童隱私</h2>
+      <div class="section-body">
+        <p>本應用程式不針對 13 歲以下兒童設計，也不會故意收集兒童的個人資訊。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>八、政策變更</h2>
+      <div class="section-body">
+        <p>我們可能會不定期更新本隱私權政策。變更將在本頁面公布，並更新生效日期。建議您定期查閱本政策以了解最新資訊。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>九、聯絡我們</h2>
+      <div class="section-body">
+        <div class="contact-card">
+          <p>如果您對本隱私權政策有任何疑問，請聯絡我們：</p>
+          <div class="contact-email">timsucompany@gmail.com</div>
+          <p style="margin-top:12px;font-size:13px;color:var(--text-secondary)">TimSuCompany</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- English Version -->
+  <div class="lang-en">
+    <section>
+      <h2>1. Overview</h2>
+      <div class="section-body">
+        <p>Photo Cleaner Master (the "App") is developed and maintained by TimSuCompany. We take your privacy seriously. This policy explains how the App handles your data.</p>
+        <div class="highlight-box">
+          <strong>Core commitment:</strong> All photo and video analysis is performed locally on your device. Your photos and videos are never uploaded to any server.
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>2. Data We Access</h2>
+      <div class="section-body">
+        <p>To provide cleanup features, the App accesses the following device data:</p>
+        <ul>
+          <li><strong>Photos & Videos:</strong> Read your device's photos and videos for blur detection, similarity grouping, and other analysis. All processing is done on-device.</li>
+          <li><strong>Storage:</strong> On Android 9 (API 28) and earlier, write permission is required for deletion operations.</li>
+          <li><strong>App Usage Stats:</strong> Used to calculate cache storage occupied by each app.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>3. On-Device AI Analysis</h2>
+      <div class="section-body">
+        <p>The App uses the following technologies to analyze your photos and videos. All processing is performed entirely on your device — no data is sent externally:</p>
+        <ul>
+          <li><strong>Blur Detection:</strong> TensorFlow Lite models to determine if a photo is blurry.</li>
+          <li><strong>Face Detection:</strong> Google ML Kit to detect closed eyes and similar conditions.</li>
+          <li><strong>Video Analysis:</strong> Perceptual hashing algorithms to identify similar videos.</li>
+        </ul>
+        <div class="highlight-box">
+          These models and algorithms run entirely on your phone. <strong>No internet connection</strong> is needed for core features.
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>4. Third-Party Services</h2>
+      <div class="section-body">
+        <p>The App uses <strong>Google AdMob</strong> to display advertisements. AdMob may collect the following information:</p>
+        <ul>
+          <li>Device identifiers (Advertising ID)</li>
+          <li>IP address</li>
+          <li>General location information (non-precise)</li>
+          <li>App usage and interaction data</li>
+        </ul>
+        <p>The collection and handling of such data is governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>5. Data Storage</h2>
+      <div class="section-body">
+        <p>The App stores the following data locally on your device:</p>
+        <ul>
+          <li><strong>Scan Cache:</strong> Analysis results for photos and videos to speed up subsequent scans.</li>
+          <li><strong>Preferences:</strong> Your app settings.</li>
+        </ul>
+        <p>This data is stored only on your device and can be removed at any time by clearing the app's data.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>6. What We Do Not Do</h2>
+      <div class="section-body">
+        <ul>
+          <li>We do not upload your photos or videos to any server</li>
+          <li>We do not create user accounts or profiles</li>
+          <li>We do not collect your name, email, or contact information</li>
+          <li>We do not track your precise location</li>
+          <li>We do not share your personal media with third parties</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>7. Children's Privacy</h2>
+      <div class="section-body">
+        <p>The App is not designed for children under the age of 13, and we do not knowingly collect personal information from children.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>8. Policy Changes</h2>
+      <div class="section-body">
+        <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated effective date. We encourage you to review this policy periodically.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>9. Contact Us</h2>
+      <div class="section-body">
+        <div class="contact-card">
+          <p>If you have any questions about this Privacy Policy, please contact us:</p>
+          <div class="contact-email">timsucompany@gmail.com</div>
+          <p style="margin-top:12px;font-size:13px;color:var(--text-secondary)">TimSuCompany</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="footer">
+    &copy; 2026 TimSuCompany. All rights reserved.
+  </div>
+</div>
+
+<script>
+  function switchLang(lang) {
+    const zhEls = document.querySelectorAll('.lang-zh');
+    const enEls = document.querySelectorAll('.lang-en');
+    const buttons = document.querySelectorAll('.lang-switch button');
+    const titleZh = document.getElementById('title-zh');
+    const titleEn = document.getElementById('title-en');
+    const dateZh = document.getElementById('date-zh');
+    const dateEn = document.getElementById('date-en');
+
+    if (lang === 'en') {
+      zhEls.forEach(el => el.style.display = 'none');
+      enEls.forEach(el => el.style.display = 'block');
+      titleZh.style.display = 'none';
+      titleEn.style.display = 'block';
+      dateZh.style.display = 'none';
+      dateEn.style.display = 'inline-block';
+      buttons[0].classList.remove('active');
+      buttons[1].classList.add('active');
+    } else {
+      zhEls.forEach(el => el.style.display = 'block');
+      enEls.forEach(el => el.style.display = 'none');
+      titleZh.style.display = 'block';
+      titleEn.style.display = 'none';
+      dateZh.style.display = 'inline-block';
+      dateEn.style.display = 'none';
+      buttons[0].classList.add('active');
+      buttons[1].classList.remove('active');
+    }
+  }
+</script>
