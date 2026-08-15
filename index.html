@@ -16,18 +16,34 @@ content="PicTidy：照片整理大師隱私權政策"
     PicTidy：照片整理大師｜隱私權政策
   </title>
 
+
   <style>
     :root {
       color-scheme: light dark;
+
+      --bg: #f5f7f6;
+      --card: #ffffff;
+      --text: #17201b;
+      --text-secondary: #657068;
+      --muted: #8a928d;
+      --border: #e4e8e5;
+      --accent: #168447;
+      --soft: #f5f7f6;
+      --shadow: rgba(18, 32, 24, 0.055);
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
+
       font-family:
         -apple-system,
         BlinkMacSystemFont,
@@ -39,52 +55,163 @@ content="PicTidy：照片整理大師隱私權政策"
         "Helvetica Neue",
         Arial,
         sans-serif;
-      background: #f5f7f6;
-      color: #17201b;
+
+      background: var(--bg);
+      color: var(--text);
+
       -webkit-font-smoothing: antialiased;
     }
 
     main {
       width: min(92%, 720px);
       margin: 0 auto;
-      padding: 36px 28px 60px;
+      padding: 28px 24px 58px;
     }
+
+    /* -------------------------
+       Language selector
+    ------------------------- */
 
     .topbar {
       display: flex;
       justify-content: flex-end;
-      margin-bottom: 28px;
+      align-items: center;
+      min-height: 42px;
+      margin-bottom: 34px;
     }
 
-    .lang-switch {
-      display: inline-flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2px;
-      padding: 4px;
-      border: 1px solid #dfe5e1;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.78);
-      backdrop-filter: blur(10px);
+    .language {
+      position: relative;
     }
 
-    .lang-btn {
-      border: 0;
-      background: transparent;
-      color: #626c65;
-      padding: 8px 11px;
-      border-radius: 999px;
-      cursor: pointer;
-      font-size: 13px;
-      font-weight: 600;
-      transition: 0.2s ease;
+    .language-button {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      height: 40px;
+      padding: 0 14px;
+
+      border: 1px solid var(--border);
+      border-radius: 12px;
+
+      background: rgba(255, 255, 255, 0.82);
+      color: var(--text);
+
       font-family: inherit;
+      font-size: 14px;
+      font-weight: 650;
+
+      cursor: pointer;
+
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.025);
+
+      transition:
+        border-color 0.18s ease,
+        background 0.18s ease,
+        box-shadow 0.18s ease;
     }
 
-    .lang-btn.active {
-      background: #17201b;
-      color: #ffffff;
+    .language-button:hover {
+      border-color: #cdd5d0;
+      box-shadow: 0 5px 16px rgba(0, 0, 0, 0.045);
     }
+
+    .globe {
+      width: 17px;
+      height: 17px;
+      display: block;
+      flex: 0 0 auto;
+    }
+
+    .arrow {
+      width: 7px;
+      height: 7px;
+
+      border-right: 1.5px solid currentColor;
+      border-bottom: 1.5px solid currentColor;
+
+      transform: rotate(45deg) translateY(-2px);
+      opacity: 0.55;
+
+      transition: transform 0.18s ease;
+    }
+
+    .language.open .arrow {
+      transform: rotate(225deg) translate(-1px, -1px);
+    }
+
+    .language-menu {
+      position: absolute;
+      z-index: 20;
+
+      top: calc(100% + 8px);
+      right: 0;
+
+      width: 176px;
+      padding: 6px;
+
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 13px;
+
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.11);
+
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+
+      transform: translateY(-5px);
+
+      transition:
+        opacity 0.16s ease,
+        transform 0.16s ease,
+        visibility 0.16s ease;
+    }
+
+    .language.open .language-menu {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .language-option {
+      width: 100%;
+      padding: 10px 11px;
+
+      border: 0;
+      border-radius: 9px;
+
+      background: transparent;
+      color: var(--text);
+
+      text-align: left;
+
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+
+      cursor: pointer;
+
+      transition:
+        background 0.15s ease,
+        color 0.15s ease;
+    }
+
+    .language-option:hover {
+      background: #f3f6f4;
+    }
+
+    .language-option.active {
+      background: #edf5f0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* -------------------------
+       Header
+    ------------------------- */
 
     .header {
       text-align: center;
@@ -94,34 +221,47 @@ content="PicTidy：照片整理大師隱私權政策"
     .icon {
       width: 96px;
       height: 96px;
+
       border-radius: 22px;
       object-fit: cover;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.13);
+
+      box-shadow: 0 13px 32px rgba(0, 0, 0, 0.13);
     }
 
     h1 {
-      margin: 20px 0 6px;
-      font-size: 28px;
+      margin: 21px 0 6px;
+
+      font-size: 29px;
       line-height: 1.3;
       letter-spacing: 0.01em;
     }
 
     .app-name {
-      margin: 0 0 12px;
+      margin: 0 0 14px;
+
       color: #7a847d;
+
       font-size: 15px;
       font-weight: 500;
     }
 
     .update-date {
       display: inline-block;
-      color: #657068;
-      background: #ffffff;
-      border: 1px solid #e4e8e5;
+
       padding: 6px 14px;
+
+      color: var(--text-secondary);
+      background: var(--card);
+
+      border: 1px solid var(--border);
       border-radius: 999px;
+
       font-size: 13px;
     }
+
+    /* -------------------------
+       Policy content
+    ------------------------- */
 
     .content {
       display: none;
@@ -132,24 +272,29 @@ content="PicTidy：照片整理大師隱私權政策"
     }
 
     section {
-      background: #ffffff;
-      border: 1px solid #e4e8e5;
+      margin-bottom: 16px;
+      padding: 25px 26px;
+
+      background: var(--card);
+
+      border: 1px solid var(--border);
       border-radius: 18px;
-      padding: 24px;
-      margin-bottom: 18px;
-      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.045);
+
+      box-shadow: 0 8px 28px var(--shadow);
     }
 
     h2 {
       margin: 0 0 12px;
+
       font-size: 18px;
-      line-height: 1.4;
+      line-height: 1.45;
     }
 
     p {
       margin: 8px 0 12px;
+
       font-size: 15px;
-      line-height: 1.75;
+      line-height: 1.78;
     }
 
     ul {
@@ -159,8 +304,9 @@ content="PicTidy：照片整理大師隱私權政策"
 
     li {
       margin-bottom: 8px;
+
       font-size: 15px;
-      line-height: 1.7;
+      line-height: 1.72;
     }
 
     strong {
@@ -168,22 +314,25 @@ content="PicTidy：照片整理大師隱私權政策"
     }
 
     .highlight-box {
-      margin: 16px 0;
+      margin: 17px 0 2px;
       padding: 17px 18px;
-      background: #f5f7f6;
-      border: 1px solid #e4e8e5;
+
+      color: var(--text-secondary);
+      background: var(--soft);
+
+      border: 1px solid var(--border);
       border-radius: 12px;
-      color: #657068;
+
       font-size: 14px;
-      line-height: 1.7;
+      line-height: 1.72;
     }
 
     .highlight-box strong {
-      color: #17201b;
+      color: var(--text);
     }
 
     a {
-      color: #168447;
+      color: var(--accent);
       text-decoration: none;
       font-weight: 600;
     }
@@ -194,7 +343,7 @@ content="PicTidy：照片整理大師隱私權政策"
 
     .contact-card {
       text-align: center;
-      padding: 6px 0;
+      padding: 7px 0;
     }
 
     .contact-card p {
@@ -204,38 +353,47 @@ content="PicTidy：照片整理大師隱私權政策"
     .email {
       display: inline-block;
       margin-top: 4px;
-      color: #168447;
+
+      color: var(--accent);
+
       font-size: 17px;
       font-weight: 700;
+
       word-break: break-all;
     }
 
     .footer {
       margin-top: 34px;
       padding-top: 24px;
+
       text-align: center;
-      color: #8a928d;
+
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+
       font-size: 13px;
-      border-top: 1px solid #dfe5e1;
     }
+
+    /* -------------------------
+       Mobile
+    ------------------------- */
 
     @media (max-width: 600px) {
       main {
-        width: 92%;
-        padding: 24px 0 48px;
+        width: 100%;
+        padding: 20px 18px 42px;
       }
 
       .topbar {
-        justify-content: center;
+        margin-bottom: 30px;
       }
 
-      .lang-switch {
-        max-width: 100%;
+      .language-menu {
+        width: 168px;
       }
 
-      .lang-btn {
-        padding: 7px 9px;
-        font-size: 12px;
+      .header {
+        margin-bottom: 32px;
       }
 
       .icon {
@@ -249,124 +407,159 @@ content="PicTidy：照片整理大師隱私權政策"
       }
 
       section {
-        padding: 21px;
+        padding: 22px 20px;
+        border-radius: 16px;
+      }
+
+      p,
+      li {
+        font-size: 14.5px;
       }
     }
 
+    /* -------------------------
+       Dark mode
+    ------------------------- */
+
     @media (prefers-color-scheme: dark) {
-      body {
-        background: #0b100d;
-        color: #f2f5f3;
+      :root {
+        --bg: #0b100d;
+        --card: #121915;
+        --text: #f2f5f3;
+        --text-secondary: #929b95;
+        --muted: #929b95;
+        --border: #263029;
+        --accent: #79e89e;
+        --soft: #0f1612;
+        --shadow: rgba(0, 0, 0, 0.17);
       }
 
-      .app-name,
-      .update-date,
-      .footer {
+      .language-button {
+        background: rgba(18, 25, 21, 0.88);
+      }
+
+      .language-button:hover {
+        border-color: #3a483f;
+      }
+
+      .language-option:hover {
+        background: #19221d;
+      }
+
+      .language-option.active {
+        background: #18271e;
+      }
+
+      .app-name {
         color: #929b95;
-      }
-
-      .lang-switch {
-        background: rgba(18, 25, 21, 0.85);
-        border-color: #2c3830;
-      }
-
-      .lang-btn {
-        color: #aab3ad;
-      }
-
-      .lang-btn.active {
-        background: #f2f5f3;
-        color: #121915;
-      }
-
-      section {
-        background: #121915;
-        border-color: #263029;
-      }
-
-      .update-date,
-      .highlight-box {
-        background: #121915;
-        border-color: #263029;
-      }
-
-      .highlight-box {
-        color: #929b95;
-      }
-
-      .highlight-box strong {
-        color: #f2f5f3;
-      }
-
-      a,
-      .email {
-        color: #79e89e;
-      }
-
-      .footer {
-        border-color: #263029;
       }
     }
   </style>
+
 
 </head>
 
 <body>
   <main>
 
-```
-<div class="topbar">
-  <div class="lang-switch">
+    <div class="topbar">
+      <div class="language" id="languageSelector">
 
-    <button
-      class="lang-btn active"
-      id="btn-zh"
-      type="button"
-      onclick="setLanguage('zh')"
-    >
-      中文
-    </button>
+        <button
+          class="language-button"
+          id="languageButton"
+          type="button"
+          aria-haspopup="true"
+          aria-expanded="false"
+          onclick="toggleLanguageMenu()"
+        >
+          <svg
+            class="globe"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            <circle
+              cx="12"
+              cy="12"
+              r="9"
+              stroke="currentColor"
+              stroke-width="1.7"
+            />
+            <path
+              d="M3.5 12h17M12 3c2.3 2.45 3.55 5.45 3.55 9S14.3 18.55 12 21M12 3C9.7 5.45 8.45 8.45 8.45 12S9.7 18.55 12 21"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+            />
+          </svg>
 
-    <button
-      class="lang-btn"
-      id="btn-en"
-      type="button"
-      onclick="setLanguage('en')"
-    >
-      English
-    </button>
+          <span id="currentLanguage">中文</span>
+          <span class="arrow" aria-hidden="true"></span>
+        </button>
 
-    <button
-      class="lang-btn"
-      id="btn-ja"
-      type="button"
-      onclick="setLanguage('ja')"
-    >
-      日本語
-    </button>
+        <div
+          class="language-menu"
+          id="languageMenu"
+          role="menu"
+          aria-label="Language"
+        >
+          <button
+            class="language-option active"
+            id="option-zh"
+            type="button"
+            role="menuitem"
+            onclick="setLanguage('zh')"
+          >
+            繁體中文
+          </button>
 
-    <button
-      class="lang-btn"
-      id="btn-ko"
-      type="button"
-      onclick="setLanguage('ko')"
-    >
-      한국어
-    </button>
+          <button
+            class="language-option"
+            id="option-en"
+            type="button"
+            role="menuitem"
+            onclick="setLanguage('en')"
+          >
+            English
+          </button>
 
-    <button
-      class="lang-btn"
-      id="btn-zh-cn"
-      type="button"
-      onclick="setLanguage('zh-cn')"
-    >
-      简体中文
-    </button>
+          <button
+            class="language-option"
+            id="option-ja"
+            type="button"
+            role="menuitem"
+            onclick="setLanguage('ja')"
+          >
+            日本語
+          </button>
 
-  </div>
-</div>
+          <button
+            class="language-option"
+            id="option-ko"
+            type="button"
+            role="menuitem"
+            onclick="setLanguage('ko')"
+          >
+            한국어
+          </button>
 
-<header class="header">
+          <button
+            class="language-option"
+            id="option-zh-cn"
+            type="button"
+            role="menuitem"
+            onclick="setLanguage('zh-cn')"
+          >
+            简体中文
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <header class="header">
+
 
   <img
     class="icon"
@@ -1717,7 +1910,6 @@ content="PicTidy：照片整理大師隱私權政策"
 <footer class="footer">
   © 2026 TimSuCompany
 </footer>
-```
 
   </main>
 
@@ -1772,14 +1964,65 @@ content="PicTidy：照片整理大師隱私權政策"
 
     };
 
+    const languageLabels = {
+      zh: '中文',
+      en: 'English',
+      ja: '日本語',
+      ko: '한국어',
+      'zh-cn': '简体中文'
+    };
+
+    const languageSelector =
+      document.getElementById('languageSelector');
+
+    const languageButton =
+      document.getElementById('languageButton');
+
+    const currentLanguage =
+      document.getElementById('currentLanguage');
+
+
+    function toggleLanguageMenu() {
+
+      const isOpen =
+        languageSelector.classList.toggle('open');
+
+      languageButton.setAttribute(
+        'aria-expanded',
+        isOpen ? 'true' : 'false'
+      );
+
+    }
+
+
+    function closeLanguageMenu() {
+
+      languageSelector.classList.remove('open');
+
+      languageButton.setAttribute(
+        'aria-expanded',
+        'false'
+      );
+
+    }
+
 
     function setLanguage(lang) {
+
+      const data = languageData[lang];
+
+      if (!data) {
+        lang = 'zh';
+      }
+
+      const activeData = languageData[lang];
 
       const contents =
         document.querySelectorAll('.content');
 
-      const buttons =
-        document.querySelectorAll('.lang-btn');
+      const options =
+        document.querySelectorAll('.language-option');
+
 
       contents.forEach(content => {
 
@@ -1791,43 +2034,36 @@ content="PicTidy：照片整理大師隱私權政策"
       });
 
 
-      buttons.forEach(button => {
-        button.classList.remove('active');
+      options.forEach(option => {
+        option.classList.remove('active');
       });
 
 
-      const buttonId =
-        lang === 'zh-cn'
-          ? 'btn-zh-cn'
-          : 'btn-' + lang;
+      const activeOption =
+        document.getElementById('option-' + lang);
 
-      const activeButton =
-        document.getElementById(buttonId);
-
-      if (activeButton) {
-        activeButton.classList.add('active');
+      if (activeOption) {
+        activeOption.classList.add('active');
       }
 
 
-      const data = languageData[lang];
-
-      if (!data) {
-        return;
-      }
+      currentLanguage.textContent =
+        languageLabels[lang];
 
 
       document.documentElement.lang =
-        data.lang;
+        activeData.lang;
 
       document.title =
-        data.title;
+        activeData.title;
 
       document
         .getElementById('meta-description')
         .setAttribute(
           'content',
-          data.description
+          activeData.description
         );
+
 
       document
         .getElementById('page-heading')
@@ -1842,21 +2078,24 @@ content="PicTidy：照片整理大師隱私權政策"
                 ? '개인정보처리방침'
                 : '隐私政策';
 
+
       document
         .getElementById('app-name')
         .textContent =
-        data.appName;
+        activeData.appName;
+
 
       document
         .getElementById('update-date')
         .textContent =
-        data.date;
+        activeData.date;
+
 
       document
         .getElementById('app-icon')
         .setAttribute(
           'alt',
-          data.iconAlt
+          activeData.iconAlt
         );
 
 
@@ -1865,21 +2104,49 @@ content="PicTidy：照片整理大師隱私權政策"
         lang
       );
 
+      closeLanguageMenu();
+
     }
 
 
+    document.addEventListener(
+      'click',
+      function (event) {
+
+        if (
+          !languageSelector.contains(
+            event.target
+          )
+        ) {
+          closeLanguageMenu();
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      'keydown',
+      function (event) {
+
+        if (event.key === 'Escape') {
+          closeLanguageMenu();
+        }
+
+      }
+    );
+
+
     const savedLanguage =
-      localStorage.getItem('privacy-language');
+      localStorage.getItem(
+        'privacy-language'
+      );
 
 
     if (languageData[savedLanguage]) {
-
       setLanguage(savedLanguage);
-
     } else {
-
       setLanguage('zh');
-
     }
 
   </script>
