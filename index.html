@@ -1,513 +1,1888 @@
-<title>隱私權政策 — 照片整理大師</title>
-<style>
-  :root {
-    --bg: #FFFFFF;
-    --bg-section: #F7F9FC;
-    --text: #1D1D1F;
-    --text-secondary: #5F6368;
-    --accent: #1A73E8;
-    --border: #DADCE0;
-    --card-shadow: 0 1px 3px rgba(0,0,0,0.06);
-  }
-  @media (prefers-color-scheme: dark) {
+<!doctype html>
+
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta
+name="description"
+id="meta-description"
+content="PicTidy：照片整理大師隱私權政策"
+
+>
+
+  <title id="page-title">
+    PicTidy：照片整理大師｜隱私權政策
+  </title>
+
+  <style>
     :root {
-      --bg: #121417;
-      --bg-section: #1A1D22;
-      --text: #E3E3E8;
-      --text-secondary: #9AA0A6;
-      --accent: #6EABF7;
-      --border: #2E3238;
-      --card-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      color-scheme: light dark;
     }
-  }
-  :root[data-theme="dark"] {
-    --bg: #121417;
-    --bg-section: #1A1D22;
-    --text: #E3E3E8;
-    --text-secondary: #9AA0A6;
-    --accent: #6EABF7;
-    --border: #2E3238;
-    --card-shadow: 0 1px 3px rgba(0,0,0,0.3);
-  }
-  :root[data-theme="light"] {
-    --bg: #FFFFFF;
-    --bg-section: #F7F9FC;
-    --text: #1D1D1F;
-    --text-secondary: #5F6368;
-    --accent: #1A73E8;
-    --border: #DADCE0;
-    --card-shadow: 0 1px 3px rgba(0,0,0,0.06);
-  }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.75;
-    -webkit-font-smoothing: antialiased;
-  }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Noto Sans TC",
+        "Noto Sans JP",
+        "Noto Sans KR",
+        "Noto Sans SC",
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+      background: #f5f7f6;
+      color: #17201b;
+      -webkit-font-smoothing: antialiased;
+    }
 
-  .container {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 48px 24px 80px;
-  }
+    main {
+      width: min(92%, 720px);
+      margin: 0 auto;
+      padding: 36px 28px 60px;
+    }
 
-  .header {
-    text-align: center;
-    margin-bottom: 48px;
-    padding-bottom: 32px;
-    border-bottom: 1px solid var(--border);
-  }
+    .topbar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 28px;
+    }
 
-  .app-icon {
-    width: 64px;
-    height: 64px;
-    background: linear-gradient(135deg, var(--accent), #4FC3F7);
-    border-radius: 16px;
-    margin: 0 auto 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 28px;
-    color: #fff;
-    box-shadow: var(--card-shadow);
-  }
+    .lang-switch {
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2px;
+      padding: 4px;
+      border: 1px solid #dfe5e1;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(10px);
+    }
 
-  h1 {
-    font-size: 28px;
-    font-weight: 700;
-    letter-spacing: -0.3px;
-    margin-bottom: 6px;
-  }
+    .lang-btn {
+      border: 0;
+      background: transparent;
+      color: #626c65;
+      padding: 8px 11px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      transition: 0.2s ease;
+      font-family: inherit;
+    }
 
-  .app-name {
-    font-size: 15px;
-    color: var(--text-secondary);
-    font-weight: 400;
-  }
+    .lang-btn.active {
+      background: #17201b;
+      color: #ffffff;
+    }
 
-  .update-date {
-    display: inline-block;
-    margin-top: 16px;
-    font-size: 13px;
-    color: var(--text-secondary);
-    background: var(--bg-section);
-    padding: 4px 14px;
-    border-radius: 20px;
-    border: 1px solid var(--border);
-  }
+    .header {
+      text-align: center;
+      margin-bottom: 38px;
+    }
 
-  section {
-    margin-bottom: 36px;
-  }
+    .icon {
+      width: 96px;
+      height: 96px;
+      border-radius: 22px;
+      object-fit: cover;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.13);
+    }
 
-  h2 {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 12px;
-    color: var(--text);
-    padding-bottom: 8px;
-    border-bottom: 2px solid var(--accent);
-    display: inline-block;
-  }
+    h1 {
+      margin: 20px 0 6px;
+      font-size: 28px;
+      line-height: 1.3;
+      letter-spacing: 0.01em;
+    }
 
-  h2::after {
-    content: '';
-    display: block;
-  }
+    .app-name {
+      margin: 0 0 12px;
+      color: #7a847d;
+      font-size: 15px;
+      font-weight: 500;
+    }
 
-  .section-body {
-    margin-top: 8px;
-  }
+    .update-date {
+      display: inline-block;
+      color: #657068;
+      background: #ffffff;
+      border: 1px solid #e4e8e5;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+    }
 
-  p {
-    margin-bottom: 12px;
-    color: var(--text);
-    font-size: 15px;
-  }
+    .content {
+      display: none;
+    }
 
-  ul {
-    padding-left: 20px;
-    margin-bottom: 12px;
-  }
+    .content.show {
+      display: block;
+    }
 
-  li {
-    margin-bottom: 8px;
-    font-size: 15px;
-    color: var(--text);
-  }
+    section {
+      background: #ffffff;
+      border: 1px solid #e4e8e5;
+      border-radius: 18px;
+      padding: 24px;
+      margin-bottom: 18px;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.045);
+    }
 
-  li strong {
-    color: var(--text);
-  }
+    h2 {
+      margin: 0 0 12px;
+      font-size: 18px;
+      line-height: 1.4;
+    }
 
-  .highlight-box {
-    background: var(--bg-section);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 18px 20px;
-    margin: 16px 0;
-    font-size: 14px;
-    color: var(--text-secondary);
-    box-shadow: var(--card-shadow);
-  }
+    p {
+      margin: 8px 0 12px;
+      font-size: 15px;
+      line-height: 1.75;
+    }
 
-  .highlight-box strong {
-    color: var(--text);
-  }
+    ul {
+      margin: 10px 0 14px;
+      padding-left: 22px;
+    }
 
-  a {
-    color: var(--accent);
-    text-decoration: none;
-  }
+    li {
+      margin-bottom: 8px;
+      font-size: 15px;
+      line-height: 1.7;
+    }
 
-  a:hover {
-    text-decoration: underline;
-  }
+    strong {
+      font-weight: 700;
+    }
 
-  .contact-card {
-    background: var(--bg-section);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px;
-    text-align: center;
-    box-shadow: var(--card-shadow);
-  }
+    .highlight-box {
+      margin: 16px 0;
+      padding: 17px 18px;
+      background: #f5f7f6;
+      border: 1px solid #e4e8e5;
+      border-radius: 12px;
+      color: #657068;
+      font-size: 14px;
+      line-height: 1.7;
+    }
 
-  .contact-card p {
-    margin-bottom: 8px;
-    font-size: 15px;
-  }
+    .highlight-box strong {
+      color: #17201b;
+    }
 
-  .contact-email {
-    font-size: 17px;
-    font-weight: 600;
-    color: var(--accent);
-  }
+    a {
+      color: #168447;
+      text-decoration: none;
+      font-weight: 600;
+    }
 
-  .lang-switch {
-    text-align: center;
-    margin-bottom: 40px;
-  }
+    a:hover {
+      text-decoration: underline;
+    }
 
-  .lang-switch button {
-    background: none;
-    border: 1px solid var(--border);
-    padding: 6px 20px;
-    border-radius: 20px;
-    font-size: 14px;
-    color: var(--text-secondary);
-    cursor: pointer;
-    margin: 0 4px;
-    transition: all 0.2s;
-    font-family: inherit;
-  }
+    .contact-card {
+      text-align: center;
+      padding: 6px 0;
+    }
 
-  .lang-switch button.active {
-    background: var(--accent);
-    color: #fff;
-    border-color: var(--accent);
-  }
+    .contact-card p {
+      margin-bottom: 8px;
+    }
 
-  .lang-en { display: none; }
+    .email {
+      display: inline-block;
+      margin-top: 4px;
+      color: #168447;
+      font-size: 17px;
+      font-weight: 700;
+      word-break: break-all;
+    }
 
-  .footer {
-    text-align: center;
-    margin-top: 56px;
-    padding-top: 24px;
-    border-top: 1px solid var(--border);
-    font-size: 13px;
-    color: var(--text-secondary);
-  }
-</style>
+    .footer {
+      margin-top: 34px;
+      padding-top: 24px;
+      text-align: center;
+      color: #8a928d;
+      font-size: 13px;
+      border-top: 1px solid #dfe5e1;
+    }
 
-<div class="container">
-  <div class="header">
-    <div class="app-icon">🧹</div>
-    <h1 id="title-zh">隱私權政策</h1>
-    <h1 id="title-en" style="display:none">Privacy Policy</h1>
-    <div class="app-name">照片整理大師 Photo Organizer Master</div>
-    <div class="update-date" id="date-zh">生效日期：2026 年 8 月 15 日</div>
-    <div class="update-date" id="date-en" style="display:none">Effective: August 15, 2026</div>
-  </div>
+    @media (max-width: 600px) {
+      main {
+        width: 92%;
+        padding: 24px 0 48px;
+      }
 
+      .topbar {
+        justify-content: center;
+      }
+
+      .lang-switch {
+        max-width: 100%;
+      }
+
+      .lang-btn {
+        padding: 7px 9px;
+        font-size: 12px;
+      }
+
+      .icon {
+        width: 88px;
+        height: 88px;
+        border-radius: 20px;
+      }
+
+      h1 {
+        font-size: 25px;
+      }
+
+      section {
+        padding: 21px;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: #0b100d;
+        color: #f2f5f3;
+      }
+
+      .app-name,
+      .update-date,
+      .footer {
+        color: #929b95;
+      }
+
+      .lang-switch {
+        background: rgba(18, 25, 21, 0.85);
+        border-color: #2c3830;
+      }
+
+      .lang-btn {
+        color: #aab3ad;
+      }
+
+      .lang-btn.active {
+        background: #f2f5f3;
+        color: #121915;
+      }
+
+      section {
+        background: #121915;
+        border-color: #263029;
+      }
+
+      .update-date,
+      .highlight-box {
+        background: #121915;
+        border-color: #263029;
+      }
+
+      .highlight-box {
+        color: #929b95;
+      }
+
+      .highlight-box strong {
+        color: #f2f5f3;
+      }
+
+      a,
+      .email {
+        color: #79e89e;
+      }
+
+      .footer {
+        border-color: #263029;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <main>
+
+```
+<div class="topbar">
   <div class="lang-switch">
-    <button class="active" onclick="switchLang('zh')">中文</button>
-    <button onclick="switchLang('en')">English</button>
-  </div>
 
-  <!-- 中文版 -->
-  <div class="lang-zh">
-    <section>
-      <h2>一、總覽</h2>
-      <div class="section-body">
-        <p>照片整理大師（以下簡稱「本應用程式」）由 TimSuCompany 開發與維護。我們非常重視您的隱私，本政策說明本應用程式如何處理您的資料。</p>
-        <div class="highlight-box">
-          <strong>核心承諾：</strong>本應用程式的所有照片與影片分析皆在您的裝置上本機執行，不會將您的照片或影片上傳至任何伺服器。
-        </div>
-      </div>
-    </section>
+    <button
+      class="lang-btn active"
+      id="btn-zh"
+      type="button"
+      onclick="setLanguage('zh')"
+    >
+      中文
+    </button>
 
-    <section>
-      <h2>二、我們存取的資料</h2>
-      <div class="section-body">
-        <p>為了提供清理功能，本應用程式會存取以下裝置資料：</p>
-        <ul>
-          <li><strong>照片與影片：</strong>讀取您裝置中的照片和影片，以進行模糊偵測、相似分組等分析。所有分析皆在裝置端完成。</li>
-          <li><strong>儲存空間：</strong>在 Android 9（API 28）及更早版本中，需要寫入權限以執行刪除操作。</li>
-          <li><strong>應用程式使用統計：</strong>用於計算各應用程式佔用的快取空間大小。</li>
-        </ul>
-      </div>
-    </section>
+    <button
+      class="lang-btn"
+      id="btn-en"
+      type="button"
+      onclick="setLanguage('en')"
+    >
+      English
+    </button>
 
-    <section>
-      <h2>三、裝置端 AI 分析</h2>
-      <div class="section-body">
-        <p>本應用程式使用以下技術來分析您的照片與影片，所有處理皆在裝置端完成，不會傳送任何資料至外部：</p>
-        <ul>
-          <li><strong>模糊偵測：</strong>使用 TensorFlow Lite 模型判斷照片是否模糊。</li>
-          <li><strong>人臉偵測：</strong>使用 Google ML Kit 偵測閉眼等情況。</li>
-          <li><strong>影片分析：</strong>使用感知雜湊演算法比對相似影片。</li>
-        </ul>
-        <div class="highlight-box">
-          上述模型與演算法完全在您的手機上運行，<strong>無需網路連線</strong>即可使用核心功能。
-        </div>
-      </div>
-    </section>
+    <button
+      class="lang-btn"
+      id="btn-ja"
+      type="button"
+      onclick="setLanguage('ja')"
+    >
+      日本語
+    </button>
 
-    <section>
-      <h2>四、第三方服務與廣告</h2>
-      <div class="section-body">
-        <p>本應用程式使用 <strong>Google AdMob</strong> 顯示第三方廣告。為提供、衡量及改善廣告服務，AdMob 可能會收集或處理與廣告及應用程式使用相關的資料。</p>
-        <ul>
-          <li><strong>裝置識別碼：</strong>例如廣告識別碼或其他與裝置及廣告服務相關的識別資訊。</li>
-          <li><strong>使用資料：</strong>例如應用程式互動、廣告互動及相關使用資訊。</li>
-          <li><strong>網路與裝置資訊：</strong>例如 IP 位址及其他提供廣告服務所需的技術資訊。</li>
-          <li><strong>一般位置資訊：</strong>可能依第三方廣告服務及裝置設定使用非精確的位置資訊。</li>
-        </ul>
-        <p><strong>廣告用途：</strong>上述資料可能由 Google AdMob 用於提供、衡量、改善或個人化第三方廣告，實際資料處理方式可能依平台、地區、使用者設定及 AdMob 設定而有所不同。</p>
-        <div class="highlight-box">
-          <strong>重要：</strong>本應用程式本身不會將您的照片或影片上傳至我們自己的伺服器，也不會主動將您的照片或影片提供給 Google AdMob 作為廣告資料使用。AdMob 的資料處理則依 Google 的服務及隱私政策進行。
-        </div>
-        <p>相關資料的收集與處理受 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 隱私權政策</a> 規範。</p>
-      </div>
-    </section>
+    <button
+      class="lang-btn"
+      id="btn-ko"
+      type="button"
+      onclick="setLanguage('ko')"
+    >
+      한국어
+    </button>
 
-    <section>
-      <h2>五、廣告識別碼與追蹤</h2>
-      <div class="section-body">
-        <p>由於本應用程式使用 Google AdMob 顯示第三方廣告，相關廣告服務可能使用裝置識別碼及應用程式使用資料進行廣告提供、衡量、改善或個人化。</p>
-        <p>在 iOS 上，如果廣告功能涉及 Apple App Tracking Transparency（ATT）所管理的追蹤權限，本應用程式會依 Apple 的系統機制向您請求相關授權。您可以選擇允許或拒絕該權限。</p>
-        <p>拒絕 ATT 授權不會影響本應用程式的核心照片整理功能，但可能影響廣告的個人化程度或廣告衡量方式。</p>
-        <p>在 Android 上，廣告服務可能使用 Android Advertising ID 或其他適用的廣告識別資訊，實際處理方式依 Google AdMob 及裝置設定而定。</p>
-      </div>
-    </section>
+    <button
+      class="lang-btn"
+      id="btn-zh-cn"
+      type="button"
+      onclick="setLanguage('zh-cn')"
+    >
+      简体中文
+    </button>
 
-    <section>
-      <h2>五、資料儲存</h2>
-      <div class="section-body">
-        <p>本應用程式在您的裝置本機儲存以下資料：</p>
-        <ul>
-          <li><strong>掃描快取：</strong>照片與影片的分析結果，用於加速後續掃描。</li>
-          <li><strong>使用偏好：</strong>您的應用程式設定。</li>
-        </ul>
-        <p>這些資料僅儲存在您的裝置上，您可以隨時透過清除應用程式資料來移除。</p>
-      </div>
-    </section>
-
-    <section>
-      <h2>六、我們不做的事</h2>
-      <div class="section-body">
-        <ul>
-          <li>不上傳您的照片或影片至任何伺服器</li>
-          <li>不建立使用者帳號或個人檔案</li>
-          <li>不要求您提供姓名、電子郵件或聯絡方式才能使用核心功能</li>
-          <li>本應用程式本身不使用核心照片整理功能追蹤您的精確位置；第三方廣告服務可能依其服務與設定處理一般位置資訊</li>
-          <li>不會將您的照片或影片主動提供給第三方廣告服務作為廣告資料使用</li>
-        </ul>
-      </div>
-    </section>
-
-    <section>
-      <h2>七、兒童隱私</h2>
-      <div class="section-body">
-        <p>本應用程式不針對 13 歲以下兒童設計，也不會故意收集兒童的個人資訊。</p>
-      </div>
-    </section>
-
-    <section>
-      <h2>八、政策變更</h2>
-      <div class="section-body">
-        <p>我們可能會不定期更新本隱私權政策。變更將在本頁面公布，並更新生效日期。建議您定期查閱本政策以了解最新資訊。</p>
-      </div>
-    </section>
-
-    <section>
-      <h2>九、聯絡我們</h2>
-      <div class="section-body">
-        <div class="contact-card">
-          <p>如果您對本隱私權政策有任何疑問，請聯絡我們：</p>
-          <div class="contact-email">timsucompany@gmail.com</div>
-          <p style="margin-top:12px;font-size:13px;color:var(--text-secondary)">TimSuCompany</p>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- English Version -->
-  <div class="lang-en">
-    <section>
-      <h2>1. Overview</h2>
-      <div class="section-body">
-        <p>Photo Organizer Master (the "App") is developed and maintained by TimSuCompany. We take your privacy seriously. This policy explains how the App handles your data.</p>
-        <div class="highlight-box">
-          <strong>Core commitment:</strong> All photo and video analysis is performed locally on your device. Your photos and videos are never uploaded to any server.
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>2. Data We Access</h2>
-      <div class="section-body">
-        <p>To provide cleanup features, the App accesses the following device data:</p>
-        <ul>
-          <li><strong>Photos & Videos:</strong> Read your device's photos and videos for blur detection, similarity grouping, and other analysis. All processing is done on-device.</li>
-          <li><strong>Storage:</strong> On Android 9 (API 28) and earlier, write permission is required for deletion operations.</li>
-          <li><strong>App Usage Stats:</strong> Used to calculate cache storage occupied by each app.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section>
-      <h2>3. On-Device AI Analysis</h2>
-      <div class="section-body">
-        <p>The App uses the following technologies to analyze your photos and videos. All processing is performed entirely on your device — no data is sent externally:</p>
-        <ul>
-          <li><strong>Blur Detection:</strong> TensorFlow Lite models to determine if a photo is blurry.</li>
-          <li><strong>Face Detection:</strong> Google ML Kit to detect closed eyes and similar conditions.</li>
-          <li><strong>Video Analysis:</strong> Perceptual hashing algorithms to identify similar videos.</li>
-        </ul>
-        <div class="highlight-box">
-          These models and algorithms run entirely on your phone. <strong>No internet connection</strong> is needed for core features.
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>4. Third-Party Services and Advertising</h2>
-      <div class="section-body">
-        <p>The App uses <strong>Google AdMob</strong> to display third-party advertisements. To provide, measure, and improve advertising services, AdMob may collect or process information related to advertising and app usage.</p>
-        <ul>
-          <li><strong>Device Identifiers:</strong> Such as advertising identifiers or other identifiers related to the device and advertising services.</li>
-          <li><strong>Usage Data:</strong> Such as app interactions, advertising interactions, and related usage information.</li>
-          <li><strong>Network and Device Information:</strong> Such as IP address and other technical information required to provide advertising services.</li>
-          <li><strong>General Location Information:</strong> Non-precise location information may be used depending on the third-party advertising service and device settings.</li>
-        </ul>
-        <p><strong>Advertising purposes:</strong> The above information may be used by Google AdMob to provide, measure, improve, or personalize third-party advertisements. Actual data processing may vary depending on the platform, region, user settings, and AdMob configuration.</p>
-        <div class="highlight-box">
-          <strong>Important:</strong> The App itself does not upload your photos or videos to our own servers and does not intentionally provide your photos or videos to Google AdMob for advertising purposes. AdMob's data processing is governed by Google's services and privacy policies.
-        </div>
-        <p>The collection and handling of such data is governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
-      </div>
-    </section>
-
-    <section>
-      <h2>5. Advertising Identifiers and Tracking</h2>
-      <div class="section-body">
-        <p>Because the App uses Google AdMob to display third-party advertisements, advertising services may use device identifiers and app usage data to provide, measure, improve, or personalize advertisements.</p>
-        <p>On iOS, if the advertising functionality involves tracking governed by Apple's App Tracking Transparency (ATT) framework, the App will request authorization through Apple's system. You may choose to allow or deny this permission.</p>
-        <p>Denying ATT authorization does not affect the App's core photo organization features, but it may affect ad personalization or advertising measurement.</p>
-        <p>On Android, advertising services may use the Android Advertising ID or other applicable advertising identifiers. Actual processing depends on Google AdMob and device settings.</p>
-      </div>
-    </section>
-
-    <section>
-      <h2>5. Data Storage</h2>
-      <div class="section-body">
-        <p>The App stores the following data locally on your device:</p>
-        <ul>
-          <li><strong>Scan Cache:</strong> Analysis results for photos and videos to speed up subsequent scans.</li>
-          <li><strong>Preferences:</strong> Your app settings.</li>
-        </ul>
-        <p>This data is stored only on your device and can be removed at any time by clearing the app's data.</p>
-      </div>
-    </section>
-
-    <section>
-      <h2>6. What We Do Not Do</h2>
-      <div class="section-body">
-        <ul>
-          <li>We do not upload your photos or videos to any server</li>
-          <li>We do not create user accounts or profiles</li>
-          <li>We do not require your name, email address, or contact information to use the core functionality of the App</li>
-          <li>The App itself does not use its core photo organization features to track your precise location; third-party advertising services may process general location information according to their services and settings</li>
-          <li>We do not intentionally provide your photos or videos to third-party advertising services for advertising purposes</li>
-        </ul>
-      </div>
-    </section>
-
-    <section>
-      <h2>7. Children's Privacy</h2>
-      <div class="section-body">
-        <p>The App is not designed for children under the age of 13, and we do not knowingly collect personal information from children.</p>
-      </div>
-    </section>
-
-    <section>
-      <h2>8. Policy Changes</h2>
-      <div class="section-body">
-        <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated effective date. We encourage you to review this policy periodically.</p>
-      </div>
-    </section>
-
-    <section>
-      <h2>9. Contact Us</h2>
-      <div class="section-body">
-        <div class="contact-card">
-          <p>If you have any questions about this Privacy Policy, please contact us:</p>
-          <div class="contact-email">timsucompany@gmail.com</div>
-          <p style="margin-top:12px;font-size:13px;color:var(--text-secondary)">TimSuCompany</p>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <div class="footer">
-    &copy; 2026 TimSuCompany. All rights reserved.
   </div>
 </div>
 
-<script>
-  function switchLang(lang) {
-    const zhEls = document.querySelectorAll('.lang-zh');
-    const enEls = document.querySelectorAll('.lang-en');
-    const buttons = document.querySelectorAll('.lang-switch button');
-    const titleZh = document.getElementById('title-zh');
-    const titleEn = document.getElementById('title-en');
-    const dateZh = document.getElementById('date-zh');
-    const dateEn = document.getElementById('date-en');
+<header class="header">
 
-    if (lang === 'en') {
-      zhEls.forEach(el => el.style.display = 'none');
-      enEls.forEach(el => el.style.display = 'block');
-      titleZh.style.display = 'none';
-      titleEn.style.display = 'block';
-      dateZh.style.display = 'none';
-      dateEn.style.display = 'inline-block';
-      buttons[0].classList.remove('active');
-      buttons[1].classList.add('active');
-    } else {
-      zhEls.forEach(el => el.style.display = 'block');
-      enEls.forEach(el => el.style.display = 'none');
-      titleZh.style.display = 'block';
-      titleEn.style.display = 'none';
-      dateZh.style.display = 'inline-block';
-      dateEn.style.display = 'none';
-      buttons[0].classList.add('active');
-      buttons[1].classList.remove('active');
+  <img
+    class="icon"
+    src="app-icon.png"
+    id="app-icon"
+    alt="PicTidy：照片整理大師 App Icon"
+  >
+
+  <h1 id="page-heading">
+    隱私權政策
+  </h1>
+
+  <p class="app-name" id="app-name">
+    PicTidy：照片整理大師
+  </p>
+
+  <div class="update-date" id="update-date">
+    生效日期：2026 年 8 月 15 日
+  </div>
+
+</header>
+
+
+<!-- ==================== 繁體中文 ==================== -->
+
+<div class="content show" data-lang="zh">
+
+  <section>
+    <h2>一、總覽</h2>
+
+    <p>
+      PicTidy：照片整理大師（以下簡稱「本應用程式」）
+      由 TimSuCompany 開發與維護。我們重視您的隱私，
+      本政策說明本應用程式如何處理您的資料。
+    </p>
+
+    <div class="highlight-box">
+      <strong>核心承諾：</strong>
+      本應用程式的照片與影片分析皆在您的裝置上本機執行，
+      不會將您的照片或影片上傳至我們自己的伺服器。
+    </div>
+  </section>
+
+
+  <section>
+    <h2>二、我們存取的資料</h2>
+
+    <p>
+      為了提供照片與裝置清理功能，本應用程式可能會存取以下資料：
+    </p>
+
+    <ul>
+      <li>
+        <strong>照片與影片：</strong>
+        讀取您裝置中的照片與影片，以進行模糊偵測、
+        相似分組及其他整理分析。相關分析皆在裝置端完成。
+      </li>
+
+      <li>
+        <strong>儲存空間：</strong>
+        在 Android 9（API 28）及更早版本中，
+        可能需要相關寫入權限以執行刪除操作。
+      </li>
+
+      <li>
+        <strong>應用程式使用資訊：</strong>
+        用於協助計算應用程式所佔用的快取或儲存空間。
+      </li>
+    </ul>
+  </section>
+
+
+  <section>
+    <h2>三、裝置端 AI 分析</h2>
+
+    <p>
+      本應用程式使用以下技術分析您的照片與影片，
+      相關處理皆在您的裝置上完成：
+    </p>
+
+    <ul>
+      <li>
+        <strong>模糊偵測：</strong>
+        使用 TensorFlow Lite 模型判斷照片是否模糊。
+      </li>
+
+      <li>
+        <strong>人臉偵測：</strong>
+        使用 Google ML Kit 偵測人臉及相關影像狀態。
+      </li>
+
+      <li>
+        <strong>影片分析：</strong>
+        使用感知雜湊等演算法比對相似影片。
+      </li>
+    </ul>
+
+    <div class="highlight-box">
+      上述模型與演算法皆在您的裝置上運行，
+      <strong>核心照片整理功能不需要將照片或影片上傳至伺服器。</strong>
+    </div>
+  </section>
+
+
+  <section>
+    <h2>四、第三方服務與廣告</h2>
+
+    <p>
+      本應用程式使用 <strong>Google AdMob</strong>
+      顯示第三方廣告。為提供、衡量及改善廣告服務，
+      AdMob 可能會收集或處理與廣告及應用程式使用相關的資料。
+    </p>
+
+    <ul>
+      <li>
+        <strong>裝置識別碼：</strong>
+        例如廣告識別碼或其他與裝置及廣告服務相關的識別資訊。
+      </li>
+
+      <li>
+        <strong>使用資料：</strong>
+        例如應用程式互動、廣告互動及相關使用資訊。
+      </li>
+
+      <li>
+        <strong>網路與裝置資訊：</strong>
+        例如 IP 位址、裝置資訊及其他提供廣告服務所需的技術資訊。
+      </li>
+
+      <li>
+        <strong>一般位置資訊：</strong>
+        第三方廣告服務可能依其服務及裝置設定使用非精確的位置資訊。
+      </li>
+    </ul>
+
+    <p>
+      <strong>廣告用途：</strong>
+      上述資料可能由 Google AdMob 用於提供、衡量、
+      改善或個人化第三方廣告。實際資料處理方式可能依平台、
+      地區、使用者設定及 AdMob 設定而有所不同。
+    </p>
+
+    <div class="highlight-box">
+      <strong>重要：</strong>
+      本應用程式本身不會將您的照片或影片上傳至我們自己的伺服器，
+      也不會主動將您的照片或影片提供給 Google AdMob
+      作為廣告資料使用。AdMob 的資料處理則依 Google
+      的服務及隱私政策進行。
+    </div>
+
+    <p>
+      相關資料的收集與處理受
+      <a
+        href="https://policies.google.com/privacy"
+        target="_blank"
+        rel="noopener"
+      >
+        Google 隱私權政策
+      </a>
+      規範。
+    </p>
+  </section>
+
+
+  <section>
+    <h2>五、廣告識別碼與追蹤</h2>
+
+    <p>
+      由於本應用程式使用 Google AdMob 顯示第三方廣告，
+      相關廣告服務可能使用裝置識別碼及應用程式使用資料，
+      以提供、衡量、改善或個人化廣告。
+    </p>
+
+    <p>
+      在 iOS 上，如果廣告功能涉及 Apple
+      App Tracking Transparency（ATT）所管理的追蹤權限，
+      本應用程式會依 Apple 的系統機制向您請求相關授權。
+      您可以選擇允許或拒絕該權限。
+    </p>
+
+    <p>
+      拒絕 ATT 授權不會影響本應用程式的核心照片整理功能，
+      但可能影響廣告的個人化程度或廣告衡量方式。
+    </p>
+
+    <p>
+      在 Android 上，廣告服務可能使用 Android Advertising ID
+      或其他適用的廣告識別資訊，實際處理方式依 Google AdMob
+      及裝置設定而定。
+    </p>
+  </section>
+
+
+  <section>
+    <h2>六、資料儲存</h2>
+
+    <p>
+      本應用程式可能在您的裝置本機儲存以下資料：
+    </p>
+
+    <ul>
+      <li>
+        <strong>掃描快取：</strong>
+        照片與影片的分析結果，用於加速後續掃描。
+      </li>
+
+      <li>
+        <strong>使用偏好：</strong>
+        您的應用程式設定及相關偏好。
+      </li>
+    </ul>
+
+    <p>
+      這些資料儲存在您的裝置上，
+      您可以透過清除應用程式資料等方式移除相關本機資料。
+    </p>
+  </section>
+
+
+  <section>
+    <h2>七、我們不做的事</h2>
+
+    <ul>
+      <li>不上傳您的照片或影片至我們自己的伺服器。</li>
+      <li>不建立使用者帳號或個人檔案。</li>
+      <li>不要求您提供姓名、電子郵件或聯絡方式才能使用核心功能。</li>
+      <li>
+        本應用程式本身不使用核心照片整理功能追蹤您的精確位置。
+      </li>
+      <li>
+        不會將您的照片或影片主動提供給第三方廣告服務作為廣告資料使用。
+      </li>
+    </ul>
+  </section>
+
+
+  <section>
+    <h2>八、兒童隱私</h2>
+
+    <p>
+      本應用程式不針對 13 歲以下兒童設計，
+      也不會故意透過本應用程式收集兒童的個人資訊。
+    </p>
+  </section>
+
+
+  <section>
+    <h2>九、政策變更</h2>
+
+    <p>
+      我們可能會不定期更新本隱私權政策。
+      變更將在本頁面公布，並更新生效日期。
+      建議您定期查閱本政策以了解最新資訊。
+    </p>
+  </section>
+
+
+  <section>
+    <h2>十、聯絡我們</h2>
+
+    <div class="contact-card">
+
+      <p>
+        如果您對本隱私權政策有任何疑問，
+        請透過以下方式聯絡我們：
+      </p>
+
+      <a
+        class="email"
+        href="mailto:timsucompany@gmail.com"
+      >
+        timsucompany@gmail.com
+      </a>
+
+      <p style="margin-top:12px;font-size:13px;color:var(--text-secondary)">
+        TimSuCompany
+      </p>
+
+    </div>
+  </section>
+
+</div>
+
+
+<!-- ==================== English ==================== -->
+
+<div class="content" data-lang="en">
+
+  <section>
+    <h2>1. Overview</h2>
+
+    <p>
+      PicTidy: Photo Cleaner Master (the "App")
+      is developed and maintained by TimSuCompany.
+      We respect your privacy. This policy explains how
+      the App handles your data.
+    </p>
+
+    <div class="highlight-box">
+      <strong>Core commitment:</strong>
+      Photo and video analysis is performed locally on your device.
+      Your photos and videos are not uploaded to our own servers.
+    </div>
+  </section>
+
+
+  <section>
+    <h2>2. Data We Access</h2>
+
+    <p>
+      To provide photo and device cleanup features,
+      the App may access the following data:
+    </p>
+
+    <ul>
+      <li>
+        <strong>Photos & Videos:</strong>
+        Photos and videos on your device may be accessed
+        for blur detection, similarity grouping, and other
+        organization analysis. Processing is performed on-device.
+      </li>
+
+      <li>
+        <strong>Storage:</strong>
+        On Android 9 (API 28) and earlier,
+        relevant write permissions may be required
+        to perform deletion operations.
+      </li>
+
+      <li>
+        <strong>App Usage Information:</strong>
+        Used to help calculate cache or storage space
+        occupied by applications.
+      </li>
+    </ul>
+  </section>
+
+
+  <section>
+    <h2>3. On-Device AI Analysis</h2>
+
+    <p>
+      The App uses the following technologies to analyze
+      your photos and videos. Processing is performed on your device:
+    </p>
+
+    <ul>
+      <li>
+        <strong>Blur Detection:</strong>
+        TensorFlow Lite models are used to determine whether
+        photos are blurry.
+      </li>
+
+      <li>
+        <strong>Face Detection:</strong>
+        Google ML Kit is used to detect faces and related
+        image conditions.
+      </li>
+
+      <li>
+        <strong>Video Analysis:</strong>
+        Perceptual hashing and similar algorithms are used
+        to identify similar videos.
+      </li>
+    </ul>
+
+    <div class="highlight-box">
+      These models and algorithms run on your device.
+      <strong>Core photo organization features do not require
+      your photos or videos to be uploaded to a server.</strong>
+    </div>
+  </section>
+
+
+  <section>
+    <h2>4. Third-Party Services and Advertising</h2>
+
+    <p>
+      The App uses <strong>Google AdMob</strong> to display
+      third-party advertisements. To provide, measure,
+      and improve advertising services, AdMob may collect
+      or process information related to advertising and app usage.
+    </p>
+
+    <ul>
+      <li>
+        <strong>Device Identifiers:</strong>
+        Such as advertising identifiers or other identifiers
+        related to the device and advertising services.
+      </li>
+
+      <li>
+        <strong>Usage Data:</strong>
+        Such as app interactions, advertising interactions,
+        and related usage information.
+      </li>
+
+      <li>
+        <strong>Network and Device Information:</strong>
+        Such as IP address, device information, and other
+        technical information required to provide advertising services.
+      </li>
+
+      <li>
+        <strong>General Location Information:</strong>
+        Non-precise location information may be used depending
+        on the third-party advertising service and device settings.
+      </li>
+    </ul>
+
+    <p>
+      <strong>Advertising purposes:</strong>
+      The above information may be used by Google AdMob
+      to provide, measure, improve, or personalize advertisements.
+      Actual data processing may vary depending on the platform,
+      region, user settings, and AdMob configuration.
+    </p>
+
+    <div class="highlight-box">
+      <strong>Important:</strong>
+      The App itself does not upload your photos or videos
+      to our own servers and does not intentionally provide
+      your photos or videos to Google AdMob for advertising purposes.
+      AdMob's data processing is governed by Google's services
+      and privacy policies.
+    </div>
+
+    <p>
+      Such data collection and processing is governed by
+      <a
+        href="https://policies.google.com/privacy"
+        target="_blank"
+        rel="noopener"
+      >
+        Google's Privacy Policy
+      </a>.
+    </p>
+  </section>
+
+
+  <section>
+    <h2>5. Advertising Identifiers and Tracking</h2>
+
+    <p>
+      Because the App uses Google AdMob to display
+      third-party advertisements, advertising services
+      may use device identifiers and app usage data to provide,
+      measure, improve, or personalize advertisements.
+    </p>
+
+    <p>
+      On iOS, if the advertising functionality involves tracking
+      governed by Apple's App Tracking Transparency (ATT) framework,
+      the App will request authorization through Apple's system.
+      You may choose to allow or deny this permission.
+    </p>
+
+    <p>
+      Denying ATT authorization does not affect the App's core
+      photo organization features, but it may affect ad
+      personalization or advertising measurement.
+    </p>
+
+    <p>
+      On Android, advertising services may use the Android
+      Advertising ID or other applicable advertising identifiers.
+      Actual processing depends on Google AdMob and device settings.
+    </p>
+  </section>
+
+
+  <section>
+    <h2>6. Data Storage</h2>
+
+    <p>
+      The App may store the following data locally on your device:
+    </p>
+
+    <ul>
+      <li>
+        <strong>Scan Cache:</strong>
+        Analysis results for photos and videos to speed up
+        subsequent scans.
+      </li>
+
+      <li>
+        <strong>Preferences:</strong>
+        Your app settings and related preferences.
+      </li>
+    </ul>
+
+    <p>
+      This information is stored on your device and can be
+      removed through methods such as clearing the App's data.
+    </p>
+  </section>
+
+
+  <section>
+    <h2>7. What We Do Not Do</h2>
+
+    <ul>
+      <li>We do not upload your photos or videos to our own servers.</li>
+      <li>We do not create user accounts or profiles.</li>
+      <li>
+        We do not require your name, email address,
+        or contact information to use core features.
+      </li>
+      <li>
+        The App itself does not use its core photo organization
+        features to track your precise location.
+      </li>
+      <li>
+        We do not intentionally provide your photos or videos
+        to third-party advertising services for advertising purposes.
+      </li>
+    </ul>
+  </section>
+
+
+  <section>
+    <h2>8. Children's Privacy</h2>
+
+    <p>
+      The App is not designed for children under the age of 13,
+      and we do not knowingly collect children's personal information
+      through the App.
+    </p>
+  </section>
+
+
+  <section>
+    <h2>9. Changes to This Policy</h2>
+
+    <p>
+      We may update this Privacy Policy from time to time.
+      Changes will be posted on this page with an updated
+      effective date. We encourage you to review this policy periodically.
+    </p>
+  </section>
+
+
+  <section>
+    <h2>10. Contact Us</h2>
+
+    <div class="contact-card">
+
+      <p>
+        If you have any questions about this Privacy Policy,
+        please contact us:
+      </p>
+
+      <a
+        class="email"
+        href="mailto:timsucompany@gmail.com"
+      >
+        timsucompany@gmail.com
+      </a>
+
+      <p style="margin-top:12px;font-size:13px;color:var(--text-secondary)">
+        TimSuCompany
+      </p>
+
+    </div>
+  </section>
+
+</div>
+
+
+<!-- ==================== Japanese ==================== -->
+
+<div class="content" data-lang="ja">
+
+  <section>
+    <h2>1. 概要</h2>
+
+    <p>
+      PicTidy：写真整理マスター（以下「本アプリ」）は、
+      TimSuCompany が開発・運営しています。
+      本ポリシーでは、本アプリがお客様のデータを
+      どのように取り扱うかについて説明します。
+    </p>
+
+    <div class="highlight-box">
+      <strong>基本方針：</strong>
+      写真や動画の分析はお客様の端末上でローカルに処理されます。
+      お客様の写真や動画を当社のサーバーへアップロードすることはありません。
+    </div>
+  </section>
+
+
+  <section>
+    <h2>2. アクセスするデータ</h2>
+
+    <p>
+      写真や端末の整理機能を提供するため、
+      本アプリは以下のデータにアクセスする場合があります。
+    </p>
+
+    <ul>
+      <li>
+        <strong>写真と動画：</strong>
+        ぼかし検出、類似グループ化などの分析を行うため、
+        端末内の写真や動画にアクセスします。
+        処理は端末上で行われます。
+      </li>
+
+      <li>
+        <strong>ストレージ：</strong>
+        Android 9（API 28）以前では、
+        削除操作を行うために関連する書き込み権限が必要になる場合があります。
+      </li>
+
+      <li>
+        <strong>アプリ使用情報：</strong>
+        アプリが使用しているキャッシュやストレージ容量の
+        計算を補助するために使用します。
+      </li>
+    </ul>
+  </section>
+
+
+  <section>
+    <h2>3. 端末上での AI 分析</h2>
+
+    <p>
+      本アプリでは、写真や動画の分析に以下の技術を使用しています。
+      これらの処理は端末上で行われます。
+    </p>
+
+    <ul>
+      <li>
+        <strong>ぼかし検出：</strong>
+        TensorFlow Lite モデルを使用して写真のぼかしを判定します。
+      </li>
+
+      <li>
+        <strong>顔検出：</strong>
+        Google ML Kit を使用して顔などの画像状態を検出します。
+      </li>
+
+      <li>
+        <strong>動画分析：</strong>
+        知覚ハッシュなどのアルゴリズムを使用して
+        類似動画を検出します。
+      </li>
+    </ul>
+
+    <div class="highlight-box">
+      これらのモデルとアルゴリズムは端末上で動作します。
+      <strong>写真や動画をサーバーへアップロードする必要はありません。</strong>
+    </div>
+  </section>
+
+
+  <section>
+    <h2>4. 第三者サービスと広告</h2>
+
+    <p>
+      本アプリでは、第三者広告を表示するために
+      <strong>Google AdMob</strong> を使用しています。
+      広告サービスの提供、測定、改善のため、
+      AdMob は広告やアプリの利用に関連する情報を
+      収集または処理する場合があります。
+    </p>
+
+    <ul>
+      <li>
+        <strong>端末識別子：</strong>
+        広告 ID など、端末や広告サービスに関連する識別情報。
+      </li>
+
+      <li>
+        <strong>利用データ：</strong>
+        アプリの操作、広告との操作などの利用情報。
+      </li>
+
+      <li>
+        <strong>ネットワークおよび端末情報：</strong>
+        IP アドレス、端末情報など、広告サービスの提供に必要な技術情報。
+      </li>
+
+      <li>
+        <strong>一般的な位置情報：</strong>
+        広告サービスや端末の設定に応じて、
+        おおまかな位置情報が使用される場合があります。
+      </li>
+    </ul>
+
+    <p>
+      <strong>広告目的：</strong>
+      上記の情報は、広告の提供、測定、改善、
+      またはパーソナライズのために Google AdMob によって
+      使用される場合があります。
+    </p>
+
+    <div class="highlight-box">
+      <strong>重要：</strong>
+      本アプリが写真や動画を当社のサーバーへアップロードすることはありません。
+      また、写真や動画を広告目的で Google AdMob に提供することもありません。
+      AdMob によるデータ処理は Google のサービスおよび
+      プライバシーポリシーに従って行われます。
+    </div>
+
+    <p>
+      詳細については
+      <a
+        href="https://policies.google.com/privacy"
+        target="_blank"
+        rel="noopener"
+      >
+        Google プライバシーポリシー
+      </a>
+      をご確認ください。
+    </p>
+  </section>
+
+
+  <section>
+    <h2>5. 広告識別子とトラッキング</h2>
+
+    <p>
+      Google AdMob を使用して第三者広告を表示するため、
+      広告サービスは広告の提供、測定、改善、
+      パーソナライズを目的として、端末識別子や
+      アプリの利用データを使用する場合があります。
+    </p>
+
+    <p>
+      iOS では、Apple の App Tracking Transparency（ATT）
+      によって管理されるトラッキングが広告機能に関係する場合、
+      Apple のシステムを通じて許可を求めます。
+    </p>
+
+    <p>
+      ATT の許可を拒否しても、本アプリの基本的な写真整理機能には影響しません。
+      ただし、広告のパーソナライズや広告測定に影響する場合があります。
+    </p>
+
+    <p>
+      Android では、広告サービスが Android Advertising ID
+      などの広告識別情報を使用する場合があります。
+    </p>
+  </section>
+
+
+  <section>
+    <h2>6. データの保存</h2>
+
+    <p>
+      本アプリは以下のデータを端末内に保存する場合があります。
+    </p>
+
+    <ul>
+      <li>
+        <strong>スキャンキャッシュ：</strong>
+        写真や動画の分析結果を保存し、次回のスキャンを高速化します。
+      </li>
+
+      <li>
+        <strong>設定情報：</strong>
+        アプリの設定や関連する環境設定。
+      </li>
+    </ul>
+
+    <p>
+      これらのデータは端末内に保存され、
+      アプリのデータを削除することで削除できます。
+    </p>
+  </section>
+
+
+  <section>
+    <h2>7. 当社が行わないこと</h2>
+
+    <ul>
+      <li>写真や動画を当社のサーバーへアップロードしません。</li>
+      <li>ユーザーアカウントやプロフィールを作成しません。</li>
+      <li>基本機能の利用に氏名やメールアドレスを要求しません。</li>
+      <li>本アプリの基本機能で正確な位置情報を追跡しません。</li>
+      <li>写真や動画を広告目的で第三者広告サービスに提供しません。</li>
+    </ul>
+  </section>
+
+
+  <section>
+    <h2>8. お子様のプライバシー</h2>
+
+    <p>
+      本アプリは 13 歳未満のお子様を対象として設計されておらず、
+      お子様の個人情報を意図的に収集することはありません。
+    </p>
+  </section>
+
+
+  <section>
+    <h2>9. ポリシーの変更</h2>
+
+    <p>
+      本プライバシーポリシーは随時更新される場合があります。
+      変更内容は本ページに掲載し、発効日を更新します。
+    </p>
+  </section>
+
+
+  <section>
+    <h2>10. お問い合わせ</h2>
+
+    <div class="contact-card">
+
+      <p>
+        本プライバシーポリシーについてご質問がある場合は、
+        以下までお問い合わせください。
+      </p>
+
+      <a
+        class="email"
+        href="mailto:timsucompany@gmail.com"
+      >
+        timsucompany@gmail.com
+      </a>
+
+      <p style="margin-top:12px;font-size:13px;color:var(--text-secondary)">
+        TimSuCompany
+      </p>
+
+    </div>
+  </section>
+
+</div>
+
+
+<!-- ==================== Korean ==================== -->
+
+<div class="content" data-lang="ko">
+
+  <section>
+    <h2>1. 개요</h2>
+
+    <p>
+      PicTidy: 사진 정리 마스터(이하 "앱")는
+      TimSuCompany에서 개발 및 운영합니다.
+      본 정책은 앱이 사용자의 데이터를 어떻게 처리하는지 설명합니다.
+    </p>
+
+    <div class="highlight-box">
+      <strong>핵심 약속:</strong>
+      사진과 동영상 분석은 사용자의 기기에서 로컬로 처리됩니다.
+      사진과 동영상은 당사의 서버로 업로드되지 않습니다.
+    </div>
+  </section>
+
+
+  <section>
+    <h2>2. 접근하는 데이터</h2>
+
+    <p>
+      사진 및 기기 정리 기능을 제공하기 위해
+      앱은 다음 데이터에 접근할 수 있습니다.
+    </p>
+
+    <ul>
+      <li>
+        <strong>사진 및 동영상:</strong>
+        흐림 감지, 유사 항목 그룹화 및 기타 분석을 위해
+        기기에 저장된 사진과 동영상에 접근합니다.
+        처리는 기기에서 수행됩니다.
+      </li>
+
+      <li>
+        <strong>저장공간:</strong>
+        Android 9(API 28) 이하에서는
+        삭제 작업을 위해 관련 쓰기 권한이 필요할 수 있습니다.
+      </li>
+
+      <li>
+        <strong>앱 사용 정보:</strong>
+        앱이 사용하는 캐시 또는 저장공간을 계산하는 데 사용될 수 있습니다.
+      </li>
+    </ul>
+  </section>
+
+
+  <section>
+    <h2>3. 기기 내 AI 분석</h2>
+
+    <p>
+      앱은 사진과 동영상을 분석하기 위해 다음 기술을 사용합니다.
+      모든 분석은 사용자의 기기에서 수행됩니다.
+    </p>
+
+    <ul>
+      <li>
+        <strong>흐림 감지:</strong>
+        TensorFlow Lite 모델을 사용하여 사진의 흐림 여부를 판단합니다.
+      </li>
+
+      <li>
+        <strong>얼굴 감지:</strong>
+        Google ML Kit를 사용하여 얼굴 및 관련 이미지 상태를 감지합니다.
+      </li>
+
+      <li>
+        <strong>동영상 분석:</strong>
+        지각 해시 등의 알고리즘을 사용하여 유사한 동영상을 찾습니다.
+      </li>
+    </ul>
+
+    <div class="highlight-box">
+      이러한 모델과 알고리즘은 기기에서 실행됩니다.
+      <strong>핵심 사진 정리 기능을 위해 사진이나 동영상을
+      서버에 업로드할 필요가 없습니다.</strong>
+    </div>
+  </section>
+
+
+  <section>
+    <h2>4. 제3자 서비스 및 광고</h2>
+
+    <p>
+      앱은 제3자 광고를 표시하기 위해
+      <strong>Google AdMob</strong>을 사용합니다.
+      광고 서비스의 제공, 측정 및 개선을 위해
+      AdMob은 광고 및 앱 사용과 관련된 정보를
+      수집하거나 처리할 수 있습니다.
+    </p>
+
+    <ul>
+      <li>
+        <strong>기기 식별자:</strong>
+        광고 ID 또는 기기 및 광고 서비스와 관련된 기타 식별 정보.
+      </li>
+
+      <li>
+        <strong>사용 데이터:</strong>
+        앱 상호작용, 광고 상호작용 및 관련 사용 정보.
+      </li>
+
+      <li>
+        <strong>네트워크 및 기기 정보:</strong>
+        IP 주소, 기기 정보 및 광고 서비스 제공에 필요한 기술 정보.
+      </li>
+
+      <li>
+        <strong>일반적인 위치 정보:</strong>
+        광고 서비스 및 기기 설정에 따라
+        비정확한 위치 정보가 사용될 수 있습니다.
+      </li>
+    </ul>
+
+    <p>
+      <strong>광고 목적:</strong>
+      위 정보는 Google AdMob에서 광고 제공, 측정,
+      개선 또는 개인화를 위해 사용할 수 있습니다.
+      실제 데이터 처리 방식은 플랫폼, 지역, 사용자 설정
+      및 AdMob 구성에 따라 달라질 수 있습니다.
+    </p>
+
+    <div class="highlight-box">
+      <strong>중요:</strong>
+      앱 자체는 사진이나 동영상을 당사의 서버에 업로드하지 않으며,
+      광고 목적으로 사진이나 동영상을 Google AdMob에 제공하지 않습니다.
+      AdMob의 데이터 처리는 Google의 서비스 및 개인정보처리방침에 따릅니다.
+    </div>
+
+    <p>
+      자세한 내용은
+      <a
+        href="https://policies.google.com/privacy"
+        target="_blank"
+        rel="noopener"
+      >
+        Google 개인정보처리방침
+      </a>
+      을 확인해 주세요.
+    </p>
+  </section>
+
+
+  <section>
+    <h2>5. 광고 식별자 및 추적</h2>
+
+    <p>
+      Google AdMob을 통해 제3자 광고를 표시하기 때문에
+      광고 서비스는 광고 제공, 측정, 개선 또는 개인화를 위해
+      기기 식별자와 앱 사용 데이터를 사용할 수 있습니다.
+    </p>
+
+    <p>
+      iOS에서는 광고 기능에 Apple의 App Tracking Transparency(ATT)
+      프레임워크가 적용되는 추적이 포함되는 경우,
+      Apple의 시스템을 통해 사용자에게 권한을 요청합니다.
+    </p>
+
+    <p>
+      ATT 권한을 거부해도 앱의 핵심 사진 정리 기능에는 영향을 주지 않습니다.
+      다만 광고 개인화 또는 광고 측정 방식에 영향을 줄 수 있습니다.
+    </p>
+
+    <p>
+      Android에서는 광고 서비스가 Android Advertising ID
+      또는 기타 적용 가능한 광고 식별자를 사용할 수 있습니다.
+    </p>
+  </section>
+
+
+  <section>
+    <h2>6. 데이터 저장</h2>
+
+    <p>
+      앱은 다음 데이터를 사용자의 기기에 로컬로 저장할 수 있습니다.
+    </p>
+
+    <ul>
+      <li>
+        <strong>스캔 캐시:</strong>
+        사진과 동영상의 분석 결과를 저장하여 이후 스캔 속도를 향상시킵니다.
+      </li>
+
+      <li>
+        <strong>환경설정:</strong>
+        앱 설정 및 관련 환경설정 정보.
+      </li>
+    </ul>
+
+    <p>
+      이러한 데이터는 기기에 저장되며
+      앱 데이터를 삭제하여 제거할 수 있습니다.
+    </p>
+  </section>
+
+
+  <section>
+    <h2>7. 당사가 하지 않는 것</h2>
+
+    <ul>
+      <li>사진이나 동영상을 당사의 서버에 업로드하지 않습니다.</li>
+      <li>사용자 계정이나 프로필을 생성하지 않습니다.</li>
+      <li>핵심 기능 사용을 위해 이름이나 이메일 주소를 요구하지 않습니다.</li>
+      <li>앱의 핵심 기능을 통해 정확한 위치를 추적하지 않습니다.</li>
+      <li>광고 목적으로 사진이나 동영상을 제3자 광고 서비스에 제공하지 않습니다.</li>
+    </ul>
+  </section>
+
+
+  <section>
+    <h2>8. 아동 개인정보 보호</h2>
+
+    <p>
+      본 앱은 만 13세 미만의 아동을 대상으로 설계되지 않았으며,
+      아동의 개인정보를 고의로 수집하지 않습니다.
+    </p>
+  </section>
+
+
+  <section>
+    <h2>9. 정책 변경</h2>
+
+    <p>
+      본 개인정보처리방침은 필요에 따라 변경될 수 있습니다.
+      변경 사항은 본 페이지에 게시되며 발효일이 업데이트됩니다.
+    </p>
+  </section>
+
+
+  <section>
+    <h2>10. 문의하기</h2>
+
+    <div class="contact-card">
+
+      <p>
+        본 개인정보처리방침에 관한 문의사항이 있으시면
+        아래 이메일로 연락해 주세요.
+      </p>
+
+      <a
+        class="email"
+        href="mailto:timsucompany@gmail.com"
+      >
+        timsucompany@gmail.com
+      </a>
+
+      <p style="margin-top:12px;font-size:13px;color:var(--text-secondary)">
+        TimSuCompany
+      </p>
+
+    </div>
+  </section>
+
+</div>
+
+
+<!-- ==================== Simplified Chinese ==================== -->
+
+<div class="content" data-lang="zh-cn">
+
+  <section>
+    <h2>一、概览</h2>
+
+    <p>
+      PicTidy：相册整理大师（以下简称“本应用”）
+      由 TimSuCompany 开发和维护。
+      本政策说明本应用如何处理您的数据。
+    </p>
+
+    <div class="highlight-box">
+      <strong>核心承诺：</strong>
+      照片和视频分析均在您的设备本地进行。
+      您的照片和视频不会上传至我们自己的服务器。
+    </div>
+  </section>
+
+
+  <section>
+    <h2>二、我们访问的数据</h2>
+
+    <p>
+      为提供照片和设备整理功能，本应用可能访问以下数据：
+    </p>
+
+    <ul>
+      <li>
+        <strong>照片和视频：</strong>
+        访问设备中的照片和视频，用于模糊检测、
+        相似分组及其他分析。相关处理均在设备端完成。
+      </li>
+
+      <li>
+        <strong>存储空间：</strong>
+        在 Android 9（API 28）及更早版本中，
+        执行删除操作可能需要相关写入权限。
+      </li>
+
+      <li>
+        <strong>应用使用信息：</strong>
+        用于帮助计算应用占用的缓存或存储空间。
+      </li>
+    </ul>
+  </section>
+
+
+  <section>
+    <h2>三、设备端 AI 分析</h2>
+
+    <p>
+      本应用使用以下技术分析您的照片和视频，
+      相关处理均在您的设备上完成：
+    </p>
+
+    <ul>
+      <li>
+        <strong>模糊检测：</strong>
+        使用 TensorFlow Lite 模型判断照片是否模糊。
+      </li>
+
+      <li>
+        <strong>人脸检测：</strong>
+        使用 Google ML Kit 检测人脸及相关图像状态。
+      </li>
+
+      <li>
+        <strong>视频分析：</strong>
+        使用感知哈希等算法识别相似视频。
+      </li>
+    </ul>
+
+    <div class="highlight-box">
+      上述模型和算法均在您的设备上运行。
+      <strong>核心照片整理功能无需将照片或视频上传至服务器。</strong>
+    </div>
+  </section>
+
+
+  <section>
+    <h2>四、第三方服务与广告</h2>
+
+    <p>
+      本应用使用 <strong>Google AdMob</strong>
+      显示第三方广告。为了提供、衡量和改善广告服务，
+      AdMob 可能会收集或处理与广告和应用使用相关的信息。
+    </p>
+
+    <ul>
+      <li>
+        <strong>设备标识符：</strong>
+        例如广告标识符或其他与设备和广告服务相关的识别信息。
+      </li>
+
+      <li>
+        <strong>使用数据：</strong>
+        例如应用互动、广告互动及相关使用信息。
+      </li>
+
+      <li>
+        <strong>网络和设备信息：</strong>
+        例如 IP 地址、设备信息以及提供广告服务所需的技术信息。
+      </li>
+
+      <li>
+        <strong>一般位置信息：</strong>
+        根据第三方广告服务和设备设置，可能会使用非精确的位置信息。
+      </li>
+    </ul>
+
+    <p>
+      <strong>广告用途：</strong>
+      上述信息可能由 Google AdMob 用于提供、衡量、
+      改善或个性化第三方广告。实际数据处理方式可能因平台、
+      地区、用户设置和 AdMob 配置而有所不同。
+    </p>
+
+    <div class="highlight-box">
+      <strong>重要：</strong>
+      本应用本身不会将您的照片或视频上传至我们自己的服务器，
+      也不会主动将您的照片或视频提供给 Google AdMob
+      用于广告目的。AdMob 的数据处理遵循 Google 的服务和隐私政策。
+    </div>
+
+    <p>
+      相关数据的收集和处理受
+      <a
+        href="https://policies.google.com/privacy"
+        target="_blank"
+        rel="noopener"
+      >
+        Google 隐私政策
+      </a>
+      约束。
+    </p>
+  </section>
+
+
+  <section>
+    <h2>五、广告标识符与追踪</h2>
+
+    <p>
+      由于本应用使用 Google AdMob 显示第三方广告，
+      相关广告服务可能使用设备标识符和应用使用数据，
+      用于提供、衡量、改善或个性化广告。
+    </p>
+
+    <p>
+      在 iOS 上，如果广告功能涉及由 Apple
+      App Tracking Transparency（ATT）框架管理的追踪，
+      本应用会通过 Apple 的系统机制请求相关授权。
+    </p>
+
+    <p>
+      拒绝 ATT 授权不会影响本应用的核心照片整理功能，
+      但可能影响广告个性化程度或广告衡量方式。
+    </p>
+
+    <p>
+      在 Android 上，广告服务可能使用 Android Advertising ID
+      或其他适用的广告标识符，具体处理方式取决于 Google AdMob
+      和设备设置。
+    </p>
+  </section>
+
+
+  <section>
+    <h2>六、数据存储</h2>
+
+    <p>
+      本应用可能在您的设备本地存储以下数据：
+    </p>
+
+    <ul>
+      <li>
+        <strong>扫描缓存：</strong>
+        照片和视频的分析结果，用于加快后续扫描。
+      </li>
+
+      <li>
+        <strong>使用偏好：</strong>
+        您的应用设置及相关偏好。
+      </li>
+    </ul>
+
+    <p>
+      这些数据存储在您的设备上，
+      可以通过清除应用数据等方式删除。
+    </p>
+  </section>
+
+
+  <section>
+    <h2>七、我们不会做的事</h2>
+
+    <ul>
+      <li>不会将您的照片或视频上传至我们自己的服务器。</li>
+      <li>不会创建用户账号或个人资料。</li>
+      <li>不会要求您提供姓名或电子邮件地址才能使用核心功能。</li>
+      <li>本应用本身不会通过核心功能追踪您的精确位置。</li>
+      <li>不会主动将您的照片或视频提供给第三方广告服务用于广告目的。</li>
+    </ul>
+  </section>
+
+
+  <section>
+    <h2>八、儿童隐私</h2>
+
+    <p>
+      本应用并非专门为 13 岁以下儿童设计，
+      我们不会故意通过本应用收集儿童的个人信息。
+    </p>
+  </section>
+
+
+  <section>
+    <h2>九、政策变更</h2>
+
+    <p>
+      我们可能会不定期更新本隐私政策。
+      更新内容将在本页面公布，并同步更新生效日期。
+      建议您定期查看本政策以了解最新信息。
+    </p>
+  </section>
+
+
+  <section>
+    <h2>十、联系我们</h2>
+
+    <div class="contact-card">
+
+      <p>
+        如果您对本隐私政策有任何疑问，
+        请通过以下方式联系我们：
+      </p>
+
+      <a
+        class="email"
+        href="mailto:timsucompany@gmail.com"
+      >
+        timsucompany@gmail.com
+      </a>
+
+      <p style="margin-top:12px;font-size:13px;color:var(--text-secondary)">
+        TimSuCompany
+      </p>
+
+    </div>
+  </section>
+
+</div>
+
+
+<footer class="footer">
+  © 2026 TimSuCompany
+</footer>
+```
+
+  </main>
+
+  <script>
+
+    const languageData = {
+
+      zh: {
+        lang: 'zh-Hant',
+        title: 'PicTidy：照片整理大師｜隱私權政策',
+        description: 'PicTidy：照片整理大師隱私權政策',
+        appName: 'PicTidy：照片整理大師',
+        date: '生效日期：2026 年 8 月 15 日',
+        iconAlt: 'PicTidy：照片整理大師 App Icon'
+      },
+
+      en: {
+        lang: 'en',
+        title: 'PicTidy: Photo Cleaner Master | Privacy Policy',
+        description: 'PicTidy: Photo Cleaner Master Privacy Policy',
+        appName: 'PicTidy: Photo Cleaner Master',
+        date: 'Effective: August 15, 2026',
+        iconAlt: 'PicTidy: Photo Cleaner Master App Icon'
+      },
+
+      ja: {
+        lang: 'ja',
+        title: 'PicTidy：写真整理マスター｜プライバシーポリシー',
+        description: 'PicTidy：写真整理マスター プライバシーポリシー',
+        appName: 'PicTidy：写真整理マスター',
+        date: '発効日：2026年8月15日',
+        iconAlt: 'PicTidy：写真整理マスター アプリアイコン'
+      },
+
+      ko: {
+        lang: 'ko',
+        title: 'PicTidy: 사진 정리 마스터 | 개인정보처리방침',
+        description: 'PicTidy: 사진 정리 마스터 개인정보처리방침',
+        appName: 'PicTidy: 사진 정리 마스터',
+        date: '시행일: 2026년 8월 15일',
+        iconAlt: 'PicTidy: 사진 정리 마스터 앱 아이콘'
+      },
+
+      'zh-cn': {
+        lang: 'zh-CN',
+        title: 'PicTidy：相册整理大师｜隐私政策',
+        description: 'PicTidy：相册整理大师隐私政策',
+        appName: 'PicTidy：相册整理大师',
+        date: '生效日期：2026 年 8 月 15 日',
+        iconAlt: 'PicTidy：相册整理大师 App 图标'
+      }
+
+    };
+
+
+    function setLanguage(lang) {
+
+      const contents =
+        document.querySelectorAll('.content');
+
+      const buttons =
+        document.querySelectorAll('.lang-btn');
+
+      contents.forEach(content => {
+
+        content.classList.toggle(
+          'show',
+          content.dataset.lang === lang
+        );
+
+      });
+
+
+      buttons.forEach(button => {
+        button.classList.remove('active');
+      });
+
+
+      const buttonId =
+        lang === 'zh-cn'
+          ? 'btn-zh-cn'
+          : 'btn-' + lang;
+
+      const activeButton =
+        document.getElementById(buttonId);
+
+      if (activeButton) {
+        activeButton.classList.add('active');
+      }
+
+
+      const data = languageData[lang];
+
+      if (!data) {
+        return;
+      }
+
+
+      document.documentElement.lang =
+        data.lang;
+
+      document.title =
+        data.title;
+
+      document
+        .getElementById('meta-description')
+        .setAttribute(
+          'content',
+          data.description
+        );
+
+      document
+        .getElementById('page-heading')
+        .textContent =
+        lang === 'zh'
+          ? '隱私權政策'
+          : lang === 'en'
+            ? 'Privacy Policy'
+            : lang === 'ja'
+              ? 'プライバシーポリシー'
+              : lang === 'ko'
+                ? '개인정보처리방침'
+                : '隐私政策';
+
+      document
+        .getElementById('app-name')
+        .textContent =
+        data.appName;
+
+      document
+        .getElementById('update-date')
+        .textContent =
+        data.date;
+
+      document
+        .getElementById('app-icon')
+        .setAttribute(
+          'alt',
+          data.iconAlt
+        );
+
+
+      localStorage.setItem(
+        'privacy-language',
+        lang
+      );
+
     }
-  }
-</script>
+
+
+    const savedLanguage =
+      localStorage.getItem('privacy-language');
+
+
+    if (languageData[savedLanguage]) {
+
+      setLanguage(savedLanguage);
+
+    } else {
+
+      setLanguage('zh');
+
+    }
+
+  </script>
+
+</body>
+</html>
